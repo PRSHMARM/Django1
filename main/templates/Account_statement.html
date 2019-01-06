@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<b>Hello {{ user.name }} This is your account statement </b>
+<br>
+<b>your credits</b>
+{% for credit in credit %}
+ <br>
+<b></b>
+<span> {{ credit.id }}</span> <span> {{ credit.credit }} </span>
+{% endfor %}
+<br>
+
+<b>your debits</b>
+{% for debit in debit %}
+ <br>
+
+<span> {{ debit.id }}</span> <span> {{ debit.debit }} </span>
+
+
+
+{% endfor %}
+<br>
+<br>
+<br>
+
+<b>your transfers</b>
+{% for transfer in transfer %}
+<br>
+<li>you transfered rupees<span> {{ transfer.amount }} </span> to <span> {{ transfer.receiver }} </span>
+{% endfor %}</li>
+
+
+
+<b> RECEIVED</b>
+{% for received in receivings %}
+<li>you have been credited by<span> {{ received.amount }}</span> from <span> {{ received.user }} </span> on <span> {{ received.date }}</span>
+ {% endfor %}</li>
+</body>
+</html>

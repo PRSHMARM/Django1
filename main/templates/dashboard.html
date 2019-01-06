@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<b>HELLO {{ user.name }} WELCOME TO GO CASHLESS BANK </b>
+<br>
+your account balance is {{ user.balance }}
+<br>
+<span><a href="/login/"><button type = "button">logout</button></a></span>
+<br>
+<span><a href="/signup/?user_id={{ user.id }}"><button type = "button">edit profile</button></a></span>
+<br>
+<b> transaction </b>
+<br>
+<span><a href="/credit/?user_id={{ user.id }}"><button type="button">CREDIT</button></a></span>
+<br>
+<span><a href="/debit/?user_id={{ user.id }}"><button type="button">DEBIT</button></a></span>
+<br>
+<span><a href="/Account_statement/?user_id={{ user.id }}"><button type="button">Account Statement</button></a></span>
+
+<span><a href="/transfer/?user_id={{ user.id }}"><button type="button">TRANSFER</button></a></span>
+<head>
+
+<style>
+h1 {
+  color: blue;
+  font-family: verdana;
+  font-size: 300%;
+}
+p  {
+  color: red;
+  font-family: courier;
+  font-size: 160%;
+}
+</style>
+</head>
+</body>
+</html>

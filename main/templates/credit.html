@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<b> credit form </b>
+<br>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+
+         {{ user_credit_form.as_p }}
+             <button type="submit">submit</button>
+</form>
+
+</body>
+</html>

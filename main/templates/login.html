@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<b>WELCOMES TO ONLINE BANKING</b>
+<br>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+<style>
+p {
+  border: 1px solid powderblue;
+}
+</style>
+<style>
+p {
+  border: 1px solid powderblue;
+  margin: 100px;
+}
+</style>
+</head>
+
+<form action ="" method ="POST">
+    {% csrf_token %}
+     <p><label for="id_email">Email:</label> <input type="text" name="email" placeholder="enter username" maxlength="256" required="" id="id_email" ></p>
+    <p><label for="id_password">Password:</label> <input type="text" name="password" placeholder="enter password" maxlength="10" required=""  style="-webkit-text-security: square;" id="id_password"></p>
+       <button type="submit">submit</button>
+<style>
+p {
+  border: 1px solid powderblue;
+  margin: 50px;
+}
+</style>
+    <span><a href="/signup/?user_id={{  user.id }}"><button type = button>signup</button></a></span>
+
+</form>
+<img src="{{STATIC_URL}}/static/images/bank.jpg"/>
+</body>
+</html>

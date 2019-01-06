@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<b> debit form </b>
+
+<br>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+
+         {{ user_debit_form.as_p }}
+             <button type="submit">submit</button>
+</form>
+
+</body>
+</html>
