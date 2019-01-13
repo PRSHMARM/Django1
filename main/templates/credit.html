@@ -4,13 +4,21 @@
 <body>
 <b> credit form </b>
 <br>
+        <style>
+body {background-color: lightyellow;}
+h1   {color: green;}
+p    {color: black;}
+</style>
 <br>
 <form action="" method="POST">
     {% csrf_token %}
 
          {{ user_credit_form.as_p }}
              <button type="submit">submit</button>
+
+<span><a href="/login/"><button type = "button">logout</button></a></span>
 </form>
+
 
 </body>
 </html>

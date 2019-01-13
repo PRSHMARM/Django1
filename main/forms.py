@@ -30,3 +30,20 @@ class transfer_form(forms.ModelForm):
     class Meta:
         model = models.Transfer
         fields = '__all__'
+
+class signupemp_form(forms.ModelForm):
+    class Meta:
+        model = models.Employee
+        fields ='__all__'
+
+
+class loginemp_form(forms.ModelForm):
+    class Meta:
+        model = models.Employee
+        fields =['email_emp','password_emp']
+
+
+class editprofile_form(forms.ModelForm):
+    class Meta:
+        model = models.User
+        fields = ['email','password','mob','address']

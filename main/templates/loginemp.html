@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<b> login form for employee</b>
+<br>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+     <p><label for="id_email">Email:</label> <input type="text" name="email" placeholder="enter username" maxlength="256" required="" id="id_email" ></p>
+    <p><label for="id_password">Password:</label> <input type="text" name="password" placeholder="enter password" maxlength="10" required=""  style="-webkit-text-security: square;" id="id_password"></p>
+             <button type="submit">submit</button>
+
+<span><a href="/login/"><button type = "button">logout</button></a></span>
+
+</form>
+
+</body>
+</html>

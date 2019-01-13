@@ -3,11 +3,14 @@
 #Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.db.utils import OperationalError
 
 
-from main.models import User, Credit, Debit, Transfer
+from main.models import User, Credit, Debit, Transfer,Employee
 from main import forms
 from django.forms import forms
+
+
 from . import forms
 from main.forms import credit_form, transfer_form
 
@@ -147,10 +150,15 @@ def transfer(request):
             creditor_balance = creditor.balance
             sender.balance = int(sender_balance) - int(amount)
             creditor.balance = int(creditor_balance)+int(amount)
-            obj = transfer_form.save()
-            obj = sender.save()
-            obj= creditor.save()
-            return HttpResponseRedirect('/dashboard/?user_id=' + str(user_id))
+            if(sender_balance<int(amount)):
+                add= int(amount)-int(sender_balance)
+                return HttpResponse("your balance is insufficient please add rupees"+str(add))
+
+            else:
+                obj = transfer_form.save()
+                obj = sender.save()
+                obj= creditor.save()
+                return HttpResponseRedirect('/dashboard/?user_id=' + str(user_id))
 
     context = {
         'user_transfer_form': transfer_form,
@@ -177,3 +185,55 @@ def Account_statement(request,):
              "debit" : debit,
              }
     return render(request, 'Account_statement.html', context)
+
+def signupemp(request):
+    print("method is", request.method)
+    if request.method == "GET":
+        form = forms.signupemp_form()
+    else:
+        form = forms.signupemp_form(request.POST)
+        if form.is_valid():
+            obj = form.save()
+            return HttpResponse("Form Is Submitted Succesfully")
+
+    context = {
+        'user_signupemp_form': form
+    }
+    return render(request,'signupemp.html',context)
+
+def loginemp(request):
+    if request.method == "GET":
+        formlogin = forms.loginemp_form()
+        context = {
+            'user_loginemp_form': formlogin
+        }
+        return render(request, 'loginemp.html', context)
+    else:
+        formlogin = forms.loginemp_form(request.POST)
+        email_emp = formlogin.data["email"]
+        password_emp = formlogin.data["password"]
+        user = Employee.objects.filter(email_emp=email_emp,password_emp=password_emp)
+        print(user)
+        if len(user)>0:
+            return HttpResponseRedirect('/dashboardemp/?user_id='+str(user[0].id))
+        else:
+            context ={
+        'user_loginemp_form': formlogin
+    }
+    return render(request, 'loginemp.html', context)
+
+def dashboardemp(request):
+    user_id = request.GET.get("user_id")
+    user = Employee.objects.filter(id=user_id)
+    print(user_id)
+    person = User.objects.all
+
+
+    context = {
+        "person":person,
+        "user": user[0]
+             }
+    return render(request, 'dashboardemp.html',context)
+
+
+

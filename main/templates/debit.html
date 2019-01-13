@@ -8,9 +8,15 @@
 <br>
 <form action="" method="POST">
     {% csrf_token %}
-
+    <style>
+body {background-color: aqua;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
          {{ user_debit_form.as_p }}
              <button type="submit">submit</button>
+
+<span><a href="/login/"><button type = "button">logout</button></a></span>
 </form>
 
 </body>

@@ -8,6 +8,7 @@
           <option value="main.models.User.objects" />
           <option value="main.settings" />
           <option value="main.urls.urlpatterns" />
+          <option value="My_project.views" />
         </list>
       </option>
     </inspection_tool>

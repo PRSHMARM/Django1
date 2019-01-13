@@ -2,13 +2,19 @@
 <html lang="en">
 
 <body>
-<b>Hello {{ user.name }} This is your account statement </b>
+        <style>
+body {background-color: lightpink;}
+h1   {color: green;}
+p    {color: black;}
+</style>
+<b>Hello {{ user.name }} This is your account statement </b><span><a href="/login/"><button type = "button">logout</button></a></span>
 <br>
+
 <b>your credits</b>
 {% for credit in credit %}
  <br>
 <b></b>
-<span> {{ credit.id }}</span> <span> {{ credit.credit }} </span>
+<span> {{ credit.id }}</span> <span>{{ credit.credit }}</span>
 {% endfor %}
 <br>
 
@@ -37,5 +43,8 @@
 {% for received in receivings %}
 <li>you have been credited by<span> {{ received.amount }}</span> from <span> {{ received.user }} </span> on <span> {{ received.date }}</span>
  {% endfor %}</li>
+
+
 </body>
+
 </html>

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<b>WELCOMES TO ONLINE BANKING</b>
+<center>
+<b>PLEASE ENTER YOUR CREDENTIALS</b>
+</center>
 <br>
 <style>
 body {background-color: powderblue;}
@@ -13,19 +15,17 @@ p {
   border: 1px solid powderblue;
 }
 </style>
-<style>
-p {
-  border: 1px solid powderblue;
-  margin: 100px;
-}
-</style>
+
+
 </head>
 
 <form action ="" method ="POST">
     {% csrf_token %}
-     <p><label for="id_email">Email:</label> <input type="text" name="email" placeholder="enter username" maxlength="256" required="" id="id_email" ></p>
+
+<center>
+    <p><label for="id_email">Email:</label> <input type="text" name="email" placeholder="enter username" maxlength="256" required="" id="id_email" ></p>
     <p><label for="id_password">Password:</label> <input type="text" name="password" placeholder="enter password" maxlength="10" required=""  style="-webkit-text-security: square;" id="id_password"></p>
-       <button type="submit">submit</button>
+    <button type="submit">submit</button></center>
 <style>
 p {
   border: 1px solid powderblue;
@@ -34,7 +34,12 @@ p {
 </style>
     <span><a href="/signup/?user_id={{  user.id }}"><button type = button>signup</button></a></span>
 
+<span><a href="/loginemp/"><button type = "button">BANK LOGIN</button></a></span>
+    <span><a href="/signupemp/"><button type = button>signup as emp</button></a></span>
+
+  <span><a href="/login/"><button type = button>logout</button></a></span>
+
 </form>
-<img src="{{STATIC_URL}}/static/images/bank.jpg"/>
+
 </body>
 </html>

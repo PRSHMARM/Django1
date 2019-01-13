@@ -61,3 +61,14 @@ class Transfer(models.Model):
     amount = models.IntegerField(blank=False, null=True,validators=[MinValueValidator(500)])
     date = models.DateField(("date"), default=datetime.date.today)
 
+
+
+class Employee(models.Model):
+    name_emp = models.CharField(max_length=100)
+    age_emp = models.IntegerField(blank=True, null=True, validators=[MaxValueValidator(150),MinValueValidator(0)])
+    email_emp = models.CharField(max_length=256,validators=[EmailValidator],null=True, unique=True,default="enter username")
+    password_emp = models.CharField(max_length =6, default="enter password")
+    mob_emp = models.CharField(blank=True, null=True, max_length=10)
+    address_emp = models.CharField(blank=False, null=False, max_length=100)
+
+
